@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Canvas with Text</title>
+<link rel="stylesheet" href="styles/styles.css" />
+<style>
+/* Canvas */
+#canvas1 {
+  border:6px double #efa83e;
+  background: url("images/neuron.jpg");
+  background-size: contain;
+}
+.description {
+  width: 550px;
+}
+
+.content {
+  margin: 20px 0 0 15px;
+}
+</style>
+<script>
+window.onload = function () {
+  var canvas1 = document.getElementById('canvas1');
+
+  if (canvas1 && canvas1.getContext) {
+    var ctx = canvas1.getContext("2d");
+    if (ctx) {
+      var myText = "Neuroeconomics";
+      ctx.font='bold 50px Manuale';
+      ctx.fillStyle='#efa83e';
+      ctx.strokeStyle='black';
+      ctx.lineWidth=1;
+      ctx.fillText(myText,20,100);
+      ctx.strokeText(myText,20,100);
+
+      ctx.fillText('Psychology',70,150);
+      ctx.fillText('Neuroscience',120,200);
+      ctx.fillText('Neuron',170,250);
+
+      ctx.strokeText('Psychology',70,150);
+      ctx.strokeText('Neuroscience',120,200);
+      ctx.strokeText('Neuron',170,250);
+
+    }
+  }
+}
+</script>
+
+</head>
+
+<body>
+
+<div class="content">
+<canvas id="canvas1" width="533" height="300">
+Your browser does not support HTML5 Canvas.
+</canvas>
+<br>
+<small>Neuron. (2015). Retrieved from <cite><a href="https://www.zmescience.com/science/neurology-science/neuron-database-06042015/">ZMEScience.com</a></cite></small>
+
+<p class="description">Neuroeconomics is an interdisciplinary field that seeks to explain human decision making. It studies how economic behavior can shape our understanding of the brain, and how neuroscientific discoveries can constrain and guide models of economics. Neuroeconomics combines research methods from neuroscience, behavioral economics, and social psychology.</p>
+<p class="description">Neuroscience is the scientific study of the nervous system. It is a multidisciplinary branch of biology that deals with the anatomy, biochemistry, molecular biology, and physiology of neurons and neural circuits. Recent theoretical advances in neuroscience have been aided by the study of neural networks. Neuroscience also draws upon the field of psychology.</p>
+<p class="description">Psychology is the science of behavior and mind, embracing all aspects of conscious and unconscious experience as well as thought. It is an academic discipline and a social science which seeks to understand individuals and groups by establishing general principles and researching specific cases. In the field of psychology, a professional researcher or practitioner attempts to understand the role of mental functions in individual and social behavior, while also exploring the physiological and biological processes that underlie cognitive functions and behaviors.</p>
+<p class="description">A neuron is an electrically excitable cell that receives, processes, and transmits information through electrical and chemical signals. These signals between neurons occur via specialized connections called synapses. Neurons can connect to each other to form neural networks. Neurons are the primary components of the central nervous system, which includes the brain. The adult human brain contains about 85-86 billion neurons.</p>
+<a href="index.html">
+  <img src="images/back-button-01.jpg" alt="Back Button" style="width:60px;height:80px;border:0;">
+</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,89 @@
+/*Typography*/
+@import url('https://fonts.googleapis.com/css?family=Manuale:400,400i,500,500i,600,600i');
+html {font-size: 1.25em;}
+
+body {
+  background-color: #fffff8;
+  font-family: 'Manuale', serif;
+  font-weight: 500;
+  line-height: 1.45;
+  color: #111;
+}
+
+p {margin-bottom: 1.3em;}
+
+h1, h2, h3, h4 {
+  margin: 1.414em 0 0.5em;
+  font-weight: inherit;
+  line-height: 1.2;
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 2.618em;
+}
+
+h2 {font-size: 1.618em;}
+
+small, .font_small {font-size: 0.618em;}
+
+/*Layout*/
+.wrap {
+  max-width: 600px;
+  margin: 0 auto;
+}
+header, nav, section, article, footer {
+  display: block;
+  margin: 0 15px;
+}
+
+header, nav {
+  border-bottom: 1px dotted #000;
+  clear: both;
+  width: 100%;}
+
+nav li {
+  margin-right: 7px;
+  display: inline;
+}
+
+nav ul, footer ul {
+  padding-left: 0;
+}
+
+section#one {clear: both; border: 5px solid #000; padding: 1%; width: 65%;}
+section#two {margin: 0; padding: 1%; width: 30%;}
+section#three {margin: 0; padding: 1%; width: 30%;}
+
+aside {float: right; margin: 0 5px; padding: 1%; width: 30%; clear: both;}
+aside img {border: 1px solid #ccc; margin: 0 10px 0 0;}
+
+
+footer {width:90%;
+  border-top: 1px dotted #000;
+}
+footer li {display: inline;}
+
+/*Links*/
+/*Tufte CSS https://github.com/edwardtufte/tufte-css/blob/gh-pages/tufte.css*/
+
+a:link {
+  color: #D73B22;
+  text-decoration: none;
+}
+a:hover {
+        color: #D73B22;
+        text-decoration: none;
+         background: -webkit-linear-gradient(#fffff8, #fffff8), -webkit-linear-gradient(#fffff8, #fffff8), -webkit-linear-gradient(#D73B22, #D73B22);
+         background: linear-gradient(#fffff8, #fffff8), linear-gradient(#fffff8, #fffff8), linear-gradient(#D73B22, #D73B22);
+         -webkit-background-size: 0.05em 1px, 0.05em 1px, 1px 1px;
+         -moz-background-size: 0.05em 1px, 0.05em 1px, 1px 1px;
+         background-size: 0.05em 1px, 0.05em 1px, 1px 1px;
+         background-repeat: no-repeat, no-repeat, repeat-x;
+         text-shadow: 0.03em 0 #fffff8, -0.03em 0 #fffff8, 0 0.03em #fffff8, 0 -0.03em #fffff8, 0.06em 0 #fffff8, -0.06em 0 #fffff8, 0.09em 0 #fffff8, -0.09em 0 #fffff8, 0.12em 0 #fffff8, -0.12em 0 #fffff8, 0.15em 0 #fffff8, -0.15em 0 #fffff8;
+         background-position: 0% 93%, 100% 93%, 0% 93%;
+       }
+
+a:visited {
+  color: #D73B22;
+}

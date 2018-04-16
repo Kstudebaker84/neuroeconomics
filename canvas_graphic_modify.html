@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Canvas Image</title>
+<link rel="stylesheet" href="styles/styles.css"/>
+</head>
+<body>
+<!-- comments -->
+<canvas id="canvas" width="800" height="680">
+Your browser does not support HTML5 Canvas.
+</canvas>
+<script>
+var canvas=document.getElementById('canvas').getContext('2d');
+var poemline = "I took the road less traveled...";
+var canvasImage=new Image();
+function drawCanvas(){
+  canvas.drawImage(canvasImage,0,0, 800, 800 * canvasImage.height / canvasImage.width);
+  canvas.fillStyle = "rgba(133, 85, 49, .5)";
+  canvas.fillRect(30,225, 520, 50);
+  canvas.font="28px Lucida Handwriting";
+  canvas.fillStyle = "#d0d62a";
+  canvas.fillText(poemline, 50, 260);
+  canvas.fillRect(20,510,150,150);
+  canvas.fillRect(630,510,150,150);
+  canvas.fillRect(325,510,150,150);
+};
+canvasImage.addEventListener('load',drawCanvas,false);
+canvasImage.src='images/decisions.jpg';
+</script>
+
+</body>
+<a href="index.html">
+  <img src="images/back-button-01.jpg" alt="Back Button" style="width:60px;height:80px;border:0;">
+</a>
+</html>

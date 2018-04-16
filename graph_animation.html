@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<!-- UIkit CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.31/css/uikit.min.css" />
+
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+
+<!-- UIkit JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.31/js/uikit.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.31/js/uikit-icons.min.js">
+</script>
+<link rel="stylesheet" href="styles/styles.css" />
+<title>Neurotransmitters in the Brain</title>
+<style>#graph{border:1px solid #03f}
+</style>
+<script>var canvas;
+var context;
+var chartMargin;
+var chartAxisSpace;
+var chartWidth;
+var chartHeight;
+var numBars=0;
+var barMargin=20;
+var barWidth=0;
+var maxValue=0;
+var numYLabels;
+var idxStep;
+var numSteps;
+var growSpeed;
+var chartData={'bars':[{'title':'Glycine','value':'1'},{'title':'Serotonin','value':'2'},{'title':'Norepinepherine','value':'3'},{'title':'Acetylcholine','value':'4'},{'title':'Adrenaline','value': '5'},{'title':'Endorphins','value':'6'},{'title':'Dopamine','value':'7'},{'title':'Glutamate','value':'8'},{'title':'GABA','value':'9'}]};
+function initGraph(){canvas=document.getElementById('graph');
+context=canvas.getContext('2d');
+initSettings();
+drawAxis();
+growBars();
+}
+function initSettings(){chartMargin=20;
+
+  chartAxisSpace=50;
+  chartHeight=canvas.height-chartAxisSpace-2*chartMargin;
+  chartWidth=canvas.width-chartAxisSpace-2*chartMargin;
+  numYLabels=8;
+  numBars=chartData.bars.length;
+  for(var i=0;
+    i<numBars;i++){if(chartData.bars[i].value>maxValue){maxValue=parseInt(chartData.bars[i].value);
+    }
+  }
+barWidth=(chartWidth/numBars)-barMargin;
+idxStep=0;
+numSteps=100;
+growSpeed=6;
+}
+function drawAxis(){
+  context.lineWidth=2;
+  context.moveTo(chartMargin+chartAxisSpace,chartHeight+chartMargin);
+  context.lineTo(chartMargin+chartAxisSpace,chartMargin);
+  context.stroke();
+  context.moveTo(chartMargin+chartAxisSpace,chartMargin+chartHeight);
+  context.lineTo(chartMargin+chartAxisSpace+chartWidth,chartMargin+chartHeight);context.stroke();
+  context.lineWidth=1;var markerAmount=parseInt(maxValue/numYLabels);
+  context.textAlign='right';
+  context.fillStyle='#000';for(var i=0;i<=numYLabels;i++){markerLabel=i*markerAmount;markerXPos=chartMargin+chartAxisSpace-5;markerYPos=chartMargin+(chartHeight-((i*markerAmount*chartHeight)/maxValue));
+  context.fillText(markerLabel,markerXPos,markerYPos,chartAxisSpace);
+}
+context.textAlign='center';
+for(var i=0;i<numBars;i++){
+  markerXPos=chartMargin+chartAxisSpace+barMargin+(i*(barWidth+barMargin))+(.5*barWidth);
+  markerYPos=chartMargin+chartHeight+10;
+  context.fillText(chartData.bars[i].title,markerXPos,markerYPos,barWidth);
+}
+context.save();
+context.translate(chartMargin+10,chartHeight/2);
+context.rotate(Math.PI*-90/180);
+context.fillText('Amount in Your Brain',0,0);
+context.restore();
+context.fillText('Neurotransmitters',chartMargin+chartAxisSpace+(chartWidth/2),chartMargin+chartHeight+40);
+}
+function growBars(){var barStartX=0;
+  var barStartY=0;
+  var barHeight=0;
+  var barValue=0;
+  for(var i=0;i<numBars;i++){
+    barValue=parseInt(chartData.bars[i].value);
+    barHeight=(barValue*chartHeight/maxValue)/numSteps*idxStep;
+    barStartX=chartMargin+chartAxisSpace+(i*(barWidth+barMargin))+barMargin;
+    barStartY=chartMargin+(chartHeight-barHeight);
+    drawBar(barStartX,barStartY,barWidth,barHeight);
+  }
+if(idxStep<numSteps){idxStep++;
+setTimeout('growBars()',growSpeed);
+}
+}
+function drawBar(barX,barY,barW,barH){
+  context.fillStyle='#2d4692';
+context.fillRect(barX,barY,barW,barH);
+context.shadowOffsetX=3;
+context.shadowOffsetY=-3;
+context.shadowBlur=3;
+context.shadowColor='rgba(200, 200, 200, .3)';
+context.strokeStyle='#90d1ec';
+context.lineWidth=1;
+context.strokeRect(barX,barY,barW,barH);
+}
+window.addEventListener('load',initGraph,false);
+</script>
+</head>
+<body>
+  <div class="uk-container uk-container-expand">
+    <div class="uk-grid">
+      <div class="uk-width-3-5@m">
+        <div style="z-index: 980;" uk-sticky="media: 640">
+          <h1>Neurotransmitters in the Brain</h1>
+          <canvas id="graph" width="900" height="500">
+          This browser does not support the canvas element.
+          </canvas>
+
+          <a href="index.html">
+            <img src="images/back-button-01.jpg" alt="Back Button" style="width:60px;height:80px;border:0;">
+          </a>
+        </div>
+      </div>
+       <div class="uk-width-2-5@m">
+         <img src="images/neurotransmitters-infographic.jpg" alt=" neurotransmitter infographic">
+       </div>
+
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,150 @@
+/*Typography*/
+@import url('https://fonts.googleapis.com/css?family=Manuale:400,400i,500,500i,600,600i');
+html {font-size: 1.25em;}
+
+
+body {
+    background: "images/brain-painting.jpg" top right no-repeat;
+    background-attachment: fixed;
+}
+
+
+body {
+  background-color: #fffff8;
+  font-family: 'Manuale', serif;
+  font-weight: 500;
+  line-height: 1.45;
+  color: #111;
+}
+
+p {margin-bottom: 1.3em;}
+
+h1, .uk-h1, h2, .uk-h2, h3, .uk-h3, h4, .uk-h4 {
+  margin: 0 0 0.5em;
+  font-weight: inherit;
+  line-height: 1.2;
+  font-family: 'Manuale', serif;
+}
+
+h1, .uk-h1 {
+  margin-top: 1em;
+  font-size: 2.618em;
+}
+
+h2, .uk-h2 {font-size: 1.618em;}
+
+.uk-h3 {font-size: 1.25em;}
+.uk-h4 {font-size: 1em;}
+small, .font_small {font-size: 0.618em;}
+
+/*Layout*/
+.wrap {
+  max-width: 600px;
+  margin: 0 auto;
+}
+header, nav, section, article, footer {
+  display: block;
+  margin: 0 15px;
+}
+
+header {
+  margin: 0;
+}
+header, nav {
+  /*border-bottom: 1px dotted #000;*/
+  clear: both;
+  width: 100%;
+}
+
+nav li {
+  margin-right: 7px;
+  display: inline;
+}
+
+nav ul, footer ul {
+  padding-left: 0;
+}
+
+section#one {clear: both; border: 5px solid #000; padding: 1%; width: 65%;}
+section#two {margin: 0; padding: 1%; width: 30%;}
+section#three {margin: 0; padding: 1%; width: 30%;}
+
+aside {float: right; margin: 0 5px; padding: 1%; width: 30%; clear: both;}
+aside img {border: 1px solid #ccc; margin: 0 10px 0 0;}
+
+footer li {display: inline;}
+
+.aside {
+   margin-top: 12px;
+}
+
+.infographic {
+  margin-top: 2em;
+  margin-left: 0;
+  left-padding: 30px;
+  border: 0;
+}
+/*Links*/
+/*Tufte CSS https://github.com/edwardtufte/tufte-css/blob/gh-pages/tufte.css*/
+
+a:link {
+  color: #D73B22;
+  text-decoration: none;
+}
+a:hover {
+        color: #D73B22;
+        text-decoration: none;
+         background: -webkit-linear-gradient(#fffff8, #fffff8), -webkit-linear-gradient(#fffff8, #fffff8), -webkit-linear-gradient(#D73B22, #D73B22);
+         background: linear-gradient(#fffff8, #fffff8), linear-gradient(#fffff8, #fffff8), linear-gradient(#D73B22, #D73B22);
+         -webkit-background-size: 0.05em 1px, 0.05em 1px, 1px 1px;
+         -moz-background-size: 0.05em 1px, 0.05em 1px, 1px 1px;
+         background-size: 0.05em 1px, 0.05em 1px, 1px 1px;
+         background-repeat: no-repeat, no-repeat, repeat-x;
+         text-shadow: 0.03em 0 #fffff8, -0.03em 0 #fffff8, 0 0.03em #fffff8, 0 -0.03em #fffff8, 0.06em 0 #fffff8, -0.06em 0 #fffff8, 0.09em 0 #fffff8, -0.09em 0 #fffff8, 0.12em 0 #fffff8, -0.12em 0 #fffff8, 0.15em 0 #fffff8, -0.15em 0 #fffff8;
+         background-position: 0% 93%, 100% 93%, 0% 93%;
+       }
+
+a:visited {
+  color: #D73B22;
+}
+
+#canvas {
+  border: 6px double white;
+  background-color: #d0d62a;
+}
+
+/*horizontal rule styling*/
+hr.fancy-line {
+  border: 0;
+  height: 1px;
+  position: relative;
+  margin: 2px 0;
+}
+hr.fancy-line:before {
+  top: -2px;
+  height: 4px;
+}
+hr.fancy-line:after {
+  content: '';
+  height: 2px;
+  top: -8px; /*or bottom:0; */
+}
+hr.fancy-line:before,
+hr.fancy-line:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+}
+hr.fancy-line,
+hr.fancy-line:before {
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#90d1ec+0,2d4692+19,b3468f+33,e13050+52,ffbb55+67,ffbb55+67,fdd04e+90,4c8a48+100 */
+  background: rgb(144,209,236); /* Old browsers */
+  background: -moz-linear-gradient(left, rgba(144,209,236,1) 0%, rgba(45,70,146,1) 19%, rgba(179,70,143,1) 33%, rgba(225,48,80,1) 52%, rgba(255,187,85,1) 67%, rgba(255,187,85,1) 67%, rgba(253,208,78,1) 90%, rgba(76,138,72,1) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, rgba(144,209,236,1) 0%,rgba(45,70,146,1) 19%,rgba(179,70,143,1) 33%,rgba(225,48,80,1) 52%,rgba(255,187,85,1) 67%,rgba(255,187,85,1) 67%,rgba(253,208,78,1) 90%,rgba(76,138,72,1) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, rgba(144,209,236,1) 0%,rgba(45,70,146,1) 19%,rgba(179,70,143,1) 33%,rgba(225,48,80,1) 52%,rgba(255,187,85,1) 67%,rgba(255,187,85,1) 67%,rgba(253,208,78,1) 90%,rgba(76,138,72,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#90d1ec', endColorstr='#4c8a48',GradientType=1 ); /* IE6-9 */
+}
+/*body,
+hr.fancy-line:after {
+  background: #f4f4f4;
+}*/

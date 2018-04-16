@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>6.2 Canvas Grid System</title>
+<style>
+
+#canvas {
+  border:1px solid #03F;
+  background: #CFC;
+}
+</style>
+</head>
+<body>
+<canvas id="canvas" width="640" height="480">
+</canvas>
+<script>
+var canvas = document.getElementById('canvas');
+var context = canvas.getContext('2d');
+// Lay the grid on to the canvas
+function showGrid() {
+// Get references to the canvas and then the drawing context
+
+// Set line width and color for the grid lines
+context.lineWidth = 1;
+context.strokeStyle = '#999';
+// Set the line spacing for the grid lines
+lineSpacing = 100;
+// Initialize the x and y positions
+var xPos = 0;
+var yPos = 0;
+// determine the number of horizontal and vertical lines on the grid
+var numHorizontalLines = parseInt(canvas.height/lineSpacing);
+var numVerticalLines = parseInt(canvas.width/lineSpacing);
+// Draw the horizontal lines
+for (var i=1; i<=numHorizontalLines;i++) {
+yPos = i*lineSpacing;
+context.moveTo(0,yPos);
+context.lineTo(canvas.width,yPos);
+context.stroke();
+}
+// Draw the vertical lines
+for (var i=1; i<=numVerticalLines;i++) {
+xPos = i*lineSpacing;
+context.moveTo(xPos,0);
+context.lineTo(xPos,canvas.height);
+context.stroke();
+}
+// Add circles and coordinates to the grid intersections
+for (var y=0; y<=numHorizontalLines; y++) {
+for (var x=0; x<=numVerticalLines; x++) {
+// calculate the x and y position
+xPos = x*lineSpacing;
+yPos = y*lineSpacing;
+// if at (0,0) then change color
+if (x==0 && y==0) {
+context.fillStyle='#f00';
+} else {
+context.fillStyle='#000';
+}
+// draw circle at point
+context.beginPath();
+// Draws a circle of radius 5 at the x and y position
+context.arc(xPos,yPos,5,0,Math.PI*2,true);
+context.closePath();
+context.fill();
+// Display the text for the coordinate
+// Check if on last vertical and place text on left
+if (x==numVerticalLines) {
+context.textAlign = 'right';
+xPos -= 5;
+} else {
+context.textAlign = 'left';
+xPos += 5;
+}
+// Check if on bottom horizontal and place text above
+if (y==numHorizontalLines) {
+yPos -= 8;
+} else {
+yPos += 12;
+}
+// Add the text to the canvas
+context.fillText('('+x*lineSpacing+','+y*lineSpacing+')',xPos,yPos);
+}
+}
+}
+// on page load initialize the bar chart
+window.addEventListener('load',showGrid,false);
+
+context.shadowOffsetX=10;
+context.shadowOffsetY=10;
+context.shadowBlur=10;
+context.shadowColor='rgba(200, 0, 200, .3)';
+context.fillStyle='rgba(200, 0, 200, 1)';
+context.fillRect(0,0,100,100);
+context.fillRect(100,100,100,100);
+context.fillRect(0,200,100,100);
+context.fillRect(200,000,100,100);
+context.fillRect(200,200,100,100);
+context.fillRect(300,100,100,100);
+context.fillRect(400,200,100,100);
+context.fillRect(400,000,100,100);
+context.strokeStyle='#000';
+context.lineWidth=3;
+context.fillStyle='#ccc';
+context.fill();
+context.stroke();
+context.save();
+
+context.strokeStyle = "#000";
+context.lineWidth = 5;
+context.fillStyle = "#fff";
+context.shadowOffsetX = 0;
+context.shadowOffsetY = 0;
+context.shadowBlur=0;
+/*Pentagon */
+context.beginPath();
+context.moveTo(262, 252);
+context.lineTo(357, 207);
+context.lineTo(425, 295);
+context.lineTo(370, 388);
+context.lineTo(260, 350);
+// context.closePath();
+context.fill();
+context.stroke();
+
+/* hexagon */
+var side = 0;
+var radius = 100;
+var x = 175;
+var yBottomScale = 250;
+var y = yBottomScale + radius/2; // needs to be [(bottom edge of scale) - (radius/2)]
+var startingradians = Math.PI / 6; //30 degrees
+
+context.beginPath();
+//context.moveTo(x + size * Math.cos(0), y + size * Math.sin(0));
+context.moveTo(x + (radius * Math.cos(Math.PI/6)), y + (radius * Math.sin(Math.PI/6)));
+
+for (side; side < 7; side++) {
+  //context.lineTo(x + size * Math.cos(side * 2 * Math.PI / 6), y + size * Math.sin(side * 2 * Math.PI / 6));
+  context.lineTo(x + radius * Math.cos((side * 2 + 1) * Math.PI / 6), y + radius * Math.sin((side * 2 + 1) * Math.PI / 6));
+}
+context.fill();
+context.stroke();
+
+// stroke and fill a circle
+context.beginPath();
+context.arc(370, 388, 15, 0, 2 * Math.PI, false);
+context.fill();
+context.stroke();
+
+context.beginPath();
+context.moveTo(357, 207);
+context.lineTo(405, 125);
+context.lineTo(500, 100);
+context.lineTo(515, 64);
+context.stroke();
+
+// stroke and fill a circle
+context.beginPath();
+context.arc(515, 64, 15, 0, 2 * Math.PI, false);
+context.fill();
+context.stroke();
+
+context.beginPath();
+context.moveTo(87, 250);
+context.lineTo(55, 235);
+context.stroke();
+
+// stroke and fill a circle
+context.beginPath();
+context.arc(55, 235, 15, 0, 2 * Math.PI, false);
+context.fill();
+context.stroke();
+
+context.beginPath();
+context.moveTo(100, 255);
+context.lineTo(177, 212);
+context.stroke();
+
+context.beginPath();
+context.moveTo(250, 257);
+context.lineTo(250, 345);
+context.stroke();
+
+context.beginPath();
+context.moveTo(175, 390);
+context.lineTo(98, 343);
+context.stroke();
+
+context.beginPath();
+context.moveTo(353, 223);
+context.lineTo(413, 300);
+context.stroke();
+
+</script>
+<!--need footer  -->
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Dopamine Molecule</title>
+<link href='https://fonts.googleapis.com/css?family=Trade+Winds' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="styles/styles_animation.css" />
+<style>
+#canvas {
+/* Place border on our canvas */
+border:1px solid #000;
+}
+</style>
+
+</head>
+<body>
+	<nav class="pages">
+		<a href="index.html">Home</a>
+	</nav>
+	<header>
+		<h1 id="title">Dopamine Molecule</h1>
+	</header>
+	<div class="main">
+	<h1>Sprite Map Animation with Canvas</h1>
+	<canvas id="canvas" width="300" height="200">
+		The Canvas element is not supported in this browser.
+	</canvas>
+	<br>
+	<button id="start">Start</button>
+	<button id="stop">Stop</button>
+	<script>
+	// canvas and context variables for drawing
+	var canvas;
+	var context;
+	// Image holder for our animation
+	var spriteRecycle = new Image();
+	// Sprite image frame variables
+	var sliceX = 0;
+	var sliceY = 0;
+	var sliceWidth = 300;
+	var sliceHeight = 200;
+	// animation variable
+	var intervalRef;
+	// initialize the canvas
+	function init() {
+	// Set the button handlers
+	var btnStart = document.getElementById('start');
+	var btnStop = document.getElementById('stop');
+	btnStart.addEventListener('click',startAnimation,false);
+	btnStop.addEventListener('click',stopAnimation,false);
+	// Retrieve reference to the canvas and context
+	canvas = document.getElementById('canvas');
+	context = canvas.getContext('2d');
+	// Assign the source of our image
+	spriteRecycle.src = 'images/cute-dopamine.jpg';
+	}
+	// Animate image based on slice
+	function animateSprite() {// Draw the image based on the current sprite slice
+	context.drawImage(spriteRecycle, sliceX, sliceY, sliceWidth, sliceHeight, 0, 0, 300, 200);
+	// Increment the slice of the sprite
+	sliceX+=300;
+	// Reset the slice to the first frame if needed
+	if (sliceX>=spriteRecycle.width) {
+	sliceX = 0;
+	}
+	}
+	// Start the animation by setting an interval
+	function startAnimation() {
+	intervalRef = setInterval('animateSprite()',200);
+	}
+	// Stop the animation by clearing the interval set
+	function stopAnimation() {
+	clearInterval(intervalRef);
+	// erase the canvas with clearRect
+	context.clearRect(0,0,300,200);
+	}
+	// call the init function on page load
+	window.addEventListener('load',init,false);
+</script>
+</body>
+</html>

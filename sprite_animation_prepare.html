@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>Recycle Animation</title>
+<style>#canvas{border:1px solid #03f}</style>
+<script>var canvas;var context;var spriteRecycle=new Image();var sliceX=0;var sliceY=0;var sliceWidth=96;var sliceHeight=96;var intervalRef;function init(){var btnStart=document.getElementById('start');var btnStop=document.getElementById('stop');btnStart.addEventListener('click',startAnimation,false);btnStop.addEventListener('click',stopAnimation,false);canvas=document.getElementById('canvas');context=canvas.getContext('2d');spriteRecycle.src='images/recycle.png';}
+function animateSprite(){context.drawImage(spriteRecycle,sliceX,sliceY,sliceWidth,sliceHeight,0,0,96,96);sliceX+=96;if(sliceX>=spriteRecycle.width){sliceX=0;}}
+function startAnimation(){intervalRef=setInterval('animateSprite()',96);}
+function stopAnimation(){clearInterval(intervalRef);context.clearRect(0,0,96,96);}
+window.addEventListener('load',init,false);</script>
+</head>
+<body>
+<h1>Sprite Map Animation with Canvas</h1>
+<canvas id="canvas" width="96" height="96">
+The Canvas element is not supported in this browser.
+</canvas>
+<br>
+<button id="start">Start</button>
+<button id="stop">Stop</button>
+</body>
+</html>

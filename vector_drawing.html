@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Serotonin Molecule</title>
+
+<!-- UIkit CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.31/css/uikit.min.css" />
+<link rel="stylesheet" href="styles/styles.css" />
+
+<!-- <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script> -->
+
+<!-- UIkit JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.31/js/uikit.min.js">
+</script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.31/js/uikit-icons.min.js">
+</script> -->
+
+
+<style>
+#canvas {
+  border:2px solid #2d4692;
+  background: #90d1ee;
+}
+</style>
+
+</head>
+<body>
+  <div class="uk-container uk-container-expand">
+    <div uk-grid>
+      <div class="uk-width-1-2">
+  <header>
+    <h1 id="title">Serotonin Molecule</h1>
+  </header>
+  <div class="main">
+  <h2>Vector Drawing on Canvas</h2>
+<canvas id="canvas" width="640" height="480">
+The Canvas element is not supported in this browser.
+</canvas>
+<div class="infographic">
+<img src="images/brain-infographic.png" alt="Brain Infographic">
+<br>
+<small>Based on Jayne Cormie. (2016). Your Amazing Brain Infographic <cite><a href="http://www.thethinkingbusiness.com">Thethinkingbusiness.com</a></cite></small>
+
+</div>
+
+</div>
+</div>
+
+<script>
+var canvas = document.getElementById('canvas');
+var context = canvas.getContext('2d');
+// Lay the grid on to the canvas
+
+context.strokeStyle = "#000";
+context.lineWidth = 5;
+context.fillStyle = "#fff";
+// context.shadowOffsetX = 0;
+// context.shadowOffsetY = 0;
+// context.shadowBlur=0;
+/*Pentagon */
+context.beginPath();
+context.moveTo(262, 252);
+context.lineTo(357, 207);
+context.lineTo(425, 295);
+context.lineTo(370, 388);
+context.lineTo(260, 350);
+// context.closePath();
+context.fill();
+context.stroke();
+
+/* hexagon */
+var side = 0;
+var radius = 100;
+var x = 175;
+var yBottomScale = 250;
+var y = yBottomScale + radius/2; // needs to be [(bottom edge of scale) - (radius/2)]
+var startingradians = Math.PI / 6; //30 degrees
+
+context.beginPath();
+//context.moveTo(x + size * Math.cos(0), y + size * Math.sin(0));
+context.moveTo(x + (radius * Math.cos(Math.PI/6)), y + (radius * Math.sin(Math.PI/6)));
+
+for (side; side < 7; side++) {
+  //context.lineTo(x + size * Math.cos(side * 2 * Math.PI / 6), y + size * Math.sin(side * 2 * Math.PI / 6));
+  context.lineTo(x + radius * Math.cos((side * 2 + 1) * Math.PI / 6), y + radius * Math.sin((side * 2 + 1) * Math.PI / 6));
+}
+context.fill();
+context.stroke();
+
+// stroke and fill a circle
+context.beginPath();
+context.arc(370, 388, 15, 0, 2 * Math.PI, false);
+context.fill();
+context.stroke();
+
+context.beginPath();
+context.moveTo(357, 207);
+context.lineTo(405, 125);
+context.lineTo(500, 100);
+context.lineTo(515, 64);
+context.stroke();
+
+// stroke and fill a circle
+context.beginPath();
+context.arc(515, 64, 15, 0, 2 * Math.PI, false);
+context.fill();
+context.stroke();
+
+context.beginPath();
+context.moveTo(87, 250);
+context.lineTo(55, 235);
+context.stroke();
+
+// stroke and fill a circle
+context.beginPath();
+context.arc(55, 235, 15, 0, 2 * Math.PI, false);
+context.fill();
+context.stroke();
+
+context.beginPath();
+context.moveTo(100, 255);
+context.lineTo(177, 212);
+context.stroke();
+
+context.beginPath();
+context.moveTo(250, 257);
+context.lineTo(250, 345);
+context.stroke();
+
+context.beginPath();
+context.moveTo(175, 390);
+context.lineTo(98, 343);
+context.stroke();
+
+context.beginPath();
+context.moveTo(353, 223);
+context.lineTo(413, 300);
+context.stroke();
+
+</script>
+
+<div class="uk-width-1-2 main-text">
+<h1>Intertemporal Choice</h1>
+
+<h2>What does it have to do with serotonin?</h2>
+<p>Intertemporal choice studies how people make choices about what and how much to do at various points in time, when choices at one time influence the possibilities available at other points in time. These choices have trade off costs and benefits at different points in time.</p>
+<p>Economists have analyzed the pleasures and pains resulting from a decision using the discounted utility model, which is studied greatly in economics and psychology.</p>
+<p>The neurotransmitter serotonin has been implicated in cognition and mood and is involved in regulating mood, emotion, cognition, and regulation behavior. Serotonin also plays an important part in a variety of behavioral impulse-related disorders, including substance abuse and decisions involving immediate gratification.</p>
+<img src="images/infographic-future-discounting-01.png" alt="Future Discounting Infographic">
+
+<br>
+<small>Based on Money on the brain infographic
+Neuroeconomics. (2014). <cite><a href="http://wpmedia.business.financialpost.com/2014/02/neuroeconomics.jpg?w=620">Financialpost.com</a></cite></small>
+
+</div>
+</div>
+
+<footer>
+  <a href="index.html">
+    <img src="images/back-button-01.jpg" alt="Back Button" style="width:60px;height:80px;border:0;">
+  </a>
+  <br>
+© 2017 Kristen Studebaker
+</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<head/><canvas id="canvas" width="640" height="480">
+</canvas>
+<script>var canvas=document.getElementById('canvas').getContext('2d');
+canvas.shadowOffsetX=10;
+canvas.shadowOffsetY=10;
+canvas.shadowBlur=10;
+canvas.shadowColor='rgba(200, 0, 200, .3)';
+canvas.fillStyle='rgba(200, 0, 200, 1)';
+canvas.fillRect(0,0,100,100);
+canvas.fillRect(100,100,100,100);
+canvas.fillRect(0,200,100,100);
+canvas.fillRect(200,000,100,100);
+canvas.fillRect(200,200,100,100);
+canvas.fillRect(300,100,100,100);
+canvas.fillRect(400,200,100,100);
+canvas.fillRect(400,000,100,100);
+canvas.beginPath();
+canvas.moveTo(110,60);
+canvas.lineTo(160,150);
+canvas.lineTo(175,140);
+canvas.lineTo(170,170);
+canvas.lineTo(230,220);
+canvas.lineTo(150,220);
+canvas.lineTo(140,240);
+canvas.lineTo(190,280);
+canvas.lineTo(70,280);
+canvas.lineTo(120,240);
+canvas.lineTo(130,210);
+canvas.lineTo(110,60);
+canvas.closePath();
+canvas.strokeStyle='#000';
+canvas.lineWidth=3;
+canvas.fillStyle='#ccc'
+canvas.fill();
+canvas.stroke();
+</script>
